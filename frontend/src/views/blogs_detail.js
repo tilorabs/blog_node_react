@@ -4,7 +4,7 @@ export default function Blogdetail({blogs}) {
     blogs = blogs[0]; //why?
     const {id} = useParams();
     const blog = blogs.filter(b => {return b.id == id;})[0];
-    const bdate = new Date(blog.date_time).toLocaleDateString();
+    const bdate = 'testdate'; //new Date(blog.date_time).toLocaleDateString();
     return (
         <section className="preview" key={blog.id}>
             <h3>{blog.title}</h3>
