@@ -1,3 +1,4 @@
 # blog-project Ling, Justin, Tilo
 
-package.json in root folder is only for heroku, can be deleted
+ - switch branches for different deployments
+ - package.json in root folder is only for heroku, can be deleted
