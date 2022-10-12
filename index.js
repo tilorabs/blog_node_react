@@ -10,7 +10,6 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(express.json()); // parse requests of content-type - application/json
 app.use(express.urlencoded({ extended: true })); //// parse requests of content-type - application/x-www-form-urlencoded
 app.use(cookieParser());
-app.use(express.static(path.resolve(__dirname, '../frontend/build'))); //node stellt frontend zur Verfügung
 //const blogs = require('./models/blogs'); //mock objects
 //const categories = require('./models/categories'); //mock objects
 const { getBlogs, postBlog, getCategories } = require('./controllers/pg_operations');
@@ -71,10 +70,6 @@ app.post('/register', async (req, res) => {
     } else {
         res.send(result);
     }
-});
-
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html')); //alle nicht behandelten Routen landen im Frontend
 });
 
 app.listen(port, () => console.log('Server listening at ' + port));
