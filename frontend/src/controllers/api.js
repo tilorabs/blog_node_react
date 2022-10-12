@@ -1,4 +1,4 @@
-const url = 'http://localhost:8080'; //data from backend
+const url = 'https://blog-project2022.herokuapp.com'; //data from backend
 
 async function getCategories() {
     const response = await fetch(url + '/categories');
