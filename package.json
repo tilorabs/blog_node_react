@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node backend/index.js",
-    "build": "cd ../frontend && npm install && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.14.0"
   },
   "author": "Ling, Justin, Tilo",
   "license": "ISC",
