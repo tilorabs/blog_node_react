@@ -9,8 +9,6 @@ export default function BlogNew({addBlog, categories}) {
     const [new_special, setNewSpecial] = useState('');
     const [new_category_id, setNewCategory_id] = useState(1);
 
-    categories = categories[0]; //why?
-
     function handleAddBlog() {
         addBlog ({
             title:new_title, 

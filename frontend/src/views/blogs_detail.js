@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 
 export default function Blogdetail({blogs}) {
-    blogs = blogs[0]; //why?
     const {id} = useParams();
-    const blog = blogs.filter(b => {return b.id == id;})[0];
+    const blogsWithId = blogs.filter(b => {return b.id == id;});
+    const blog = blogsWithId[0];
     const bdate = new Date(blog.date_time).toLocaleDateString();
     return (
         <section className="preview" key={blog.id}>

@@ -5,8 +5,6 @@ export default function Categories({categories, blogs, logout}) {
         logout();
     }
 
-    categories = categories[0]; //why?
-    blogs = blogs[0]; //why?
     const categoryBlogs = categories.map((c) => {
         return [c.id, c.name, blogs.filter(blog => {return blog.category_id === c.id;})]
     })

@@ -21,19 +21,18 @@ function App() {
   async function readData() {
     const fetchBlogs = await getBlogs();
     const fetchCategories = await getCategories();
-    setCategories([...categories, fetchCategories]);
-    setBlogs([...blogs, fetchBlogs]);
+    setCategories(fetchCategories);
+    setBlogs(fetchBlogs);
     if(blogs && categories) {
       setIsDataLoading(false);
     }
   }
 
-  //todo: don't automatically shows new blog at the website
   const addBlog = async (blog) => {
     const token = localStorage.getItem("token");
     const newblog = await postBlog(blog, token);
-    //setBlogs((prev) => [...prev, newblog]);
-    //readData();
+    setBlogs(prev => ([...prev, newblog]));
+    readData();
     nav('/');
   }
 
@@ -57,14 +56,19 @@ function App() {
 
   const handleSearch = (search) => {
     setSearch(search);
-    /* if(search.length > 0 && !isDataLoading) {
-      setBlogs(blogs.filter(b => {return b.title.startsWith(search)}));
-    } */
   }
 
   useEffect(() => {
     readData();
   }, [])
+
+  useEffect(() => {
+    if(search.length > 0) {
+      setBlogs(blogs.filter(b => {return b.title.toLowerCase().startsWith(search.toLowerCase())}));
+    } else {
+      readData();
+    }
+  }, [search])
 
   return isDataLoading ? (
     <Loader />
