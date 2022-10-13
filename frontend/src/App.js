@@ -1,4 +1,4 @@
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, Redirect, useNavigate} from 'react-router-dom';
 import {useState, useEffect } from 'react';
 import {getCategories, getBlogs, postBlog, postUser, loginUser, logoutUser} from './controllers/api';
 import Categories from './views/categories';
