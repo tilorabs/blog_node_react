@@ -91,6 +91,7 @@ function App() {
           <Route path='/blog' element={<BlogNew addBlog={addBlog} categories={categories} />} />
           <Route path='/login' element={<Login login={login} />} />
           <Route path='/register' element={<Register register={register} />} />
+          <Redirect from="*" to="/" />
         </Routes>
         </main>
         <aside>
