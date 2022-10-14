@@ -6,7 +6,7 @@ const app = express();
 //Each request in app goes through multiple middleware’s in express. If one of the middleware returns the response it ends there. 
 //If any middleware wants to pass the request to next middleware, it uses next() function call at the end of its function call.
 app.use(express.static('build'));
-app.use(cors({ credentials: true }));
+app.use(cors());
 app.use(express.json()); // parse requests of content-type - application/json
 app.use(express.urlencoded({ extended: true })); //// parse requests of content-type - application/x-www-form-urlencoded
 app.use(cookieParser());
