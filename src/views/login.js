@@ -10,7 +10,7 @@ export default function Login({login}) {
         login(username, password);
     }
 
-    const to = "/register";
+    const to = "/blog_node_react/register";
 
     return (
         <section className="preview">

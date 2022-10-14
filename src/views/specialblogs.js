@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function SpecialBlogs({blogs}) {
     const specialblogs = blogs.filter(blog => {return blog.special === true;});
     const li_specialblogs = specialblogs.map((blog) => {
-        const blog_to = "/" + blog.id;
+        const blog_to = "/blog_node_react/" + blog.id;
         return (
             <section className="special" key={blog.id}>
                 <h4>{blog.title}</h4>

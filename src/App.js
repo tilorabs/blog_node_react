@@ -33,25 +33,25 @@ function App() {
     const newblog = await postBlog(blog, token);
     setBlogs(prev => ([...prev, newblog]));
     readData();
-    nav('/');
+    nav('/blog_node_react/');
   }
 
   const login = async (username, password) => {
     const result = await loginUser(username, password);
     localStorage.setItem("token", result);
-    nav('/');
+    nav('/blog_node_react/');
   }
 
   const logout = async () => {
     await logoutUser();
     localStorage.removeItem("token");
-    nav('/');
+    nav('/blog_node_react/');
   }
 
   const register = async (username, password) => {
     const result = await postUser(username, password);
     console.log(result);
-    nav('/');
+    nav('/blog_node_react/');
   }
 
   const handleSearch = (search) => {
@@ -86,12 +86,12 @@ function App() {
         </nav>
         <main>
         <Routes>
-          <Route path='/' element={<Blogs blogs={blogs} />} />
-          <Route path="/:id" element={<Blogdetail blogs={blogs} />} />
-          <Route path='/blog' element={<BlogNew addBlog={addBlog} categories={categories} />} />
-          <Route path='/login' element={<Login login={login} />} />
-          <Route path='/register' element={<Register register={register} />} />
-          <Route path='*' element={<Blogs blogs={blogs} />} />
+          <Route path='/blog_node_react/' element={<Blogs blogs={blogs} />} />
+          <Route path="/blog_node_react/:id" element={<Blogdetail blogs={blogs} />} />
+          <Route path='/blog_node_react/blog' element={<BlogNew addBlog={addBlog} categories={categories} />} />
+          <Route path='/blog_node_react/login' element={<Login login={login} />} />
+          <Route path='/blog_node_react/register' element={<Register register={register} />} />
+          <Route path='/blog_node_react/*' element={<Blogs blogs={blogs} />} />
         </Routes>
         </main>
         <aside>
